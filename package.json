@@ -1,0 +1,15 @@
+{
+  "name": "ubaid-ahmad-portfolio",
+  "version": "1.0.0",
+  "description": "Professional single-page developer portfolio for Ubaid Ahmad",
+  "scripts": {
+    "start": "npx http-server -p 8000",
+    "dev": "npx http-server -p 8000"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

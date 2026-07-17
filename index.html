@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of Ubaid Ahmad, a Computer Science Engineering graduate from MANUU and alumnus of Aligarh Muslim University (AMU). Specializing in Data Structures, Flask REST APIs, Machine Learning, and Flutter.">
+    <meta name="author" content="Ubaid Ahmad">
+    <meta name="keywords"
+        content="Ubaid Ahmad, Software Engineer, Aligarh Muslim University, AMU Alumnus, MANUU, Python Developer, Flask API, Machine Learning, CNN, Flutter Developer, LeetCode">
+    <title>Ubaid Ahmad | Software Engineer & Computer Science Graduate (MANUU | AMU)</title>
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Ubaid Ahmad | Software Engineer & Computer Science Graduate (MANUU | AMU)">
+    <meta property="og:description" content="Portfolio of Ubaid Ahmad, a Computer Science Engineering graduate from MANUU and alumnus of Aligarh Muslim University (AMU). Specializing in Data Structures, Flask REST APIs, Machine Learning, and Flutter.">
+    <meta property="og:image" content="assets/profile.jpg">
+    <meta property="og:site_name" content="Ubaid Ahmad Portfolio">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ubaid Ahmad | Software Engineer & Computer Science Graduate (MANUU | AMU)">
+    <meta name="twitter:description" content="Portfolio of Ubaid Ahmad, a Computer Science Engineering graduate from MANUU and alumnus of Aligarh Muslim University (AMU). Specializing in Data Structures, Flask REST APIs, Machine Learning, and Flutter.">
+    <meta name="twitter:image" content="assets/profile.jpg">
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Ubaid Ahmad",
+        "jobTitle": "Software Engineer",
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "Maulana Azad National Urdu University",
+            "sameAs": "https://www.manuu.edu.in/"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Aligarh Muslim University",
+            "sameAs": "https://www.amu.ac.in/"
+          }
+        ],
+        "knowsAbout": ["Python", "Java", "Data Structures", "Algorithms", "Flask", "Machine Learning", "Flutter", "REST APIs"],
+        "sameAs": [
+          "https://linkedin.com/in/ubaid-ahmad-ml",
+          "https://github.com/ubaidahmad786",
+          "https://leetcode.com/u/ubaid_ahmad99/"
+        ]
+      }
+    }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+
+<body>
+    <!-- Background Glow Elements -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo" aria-label="Ubaid Ahmad Logo">
+                <span class="logo-accent">&lt;</span>UbaidAhmad<span class="logo-accent">/&gt;</span>
+            </a>
+
+            <nav class="nav-links" id="nav-menu">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Scroll Progress Bar -->
+        <div class="scroll-progress-container">
+            <div class="scroll-progress-bar" id="scroll-progress"></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge animate-fade-in">
+                        <span class="badge-dot"></span>
+                        <span class="badge-text">Available for Opportunities</span>
+                    </div>
+                    <h1 class="hero-title animate-slide-up">
+                        Hi, I'm <span class="highlight-gradient">Ubaid Ahmad</span>
+                    </h1>
+                    <h2 class="hero-subtitle animate-slide-up" id="typewriter-title">
+                        Computer Science Graduate & Software Engineer
+                    </h2>
+                    <p class="hero-tagline animate-slide-up">
+                        Designing robust software systems and training precise Deep Learning architectures for
+                        real-world impact.
+                    </p>
+
+                    <div class="hero-cta animate-slide-up">
+                        <a href="https://drive.google.com/file/d/1uKDX8I_8QRGWKf_2R7QZOy-k_qfxK-06/view?usp=drive_link"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="btn-resume-hero">
+                            <span>Download Resume</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="7 10 12 15 17 10" />
+                                <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-socials animate-slide-up">
+                        <a href="https://github.com/ubaidahmad786" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                <path d="M9 18c-4.51 2-5-2-7-2" />
+                            </svg>
+                            <span class="tooltip">GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/ubaid-ahmad-ml" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                            <span class="tooltip">LinkedIn</span>
+                        </a>
+                        <a href="https://leetcode.com/u/ubaid_ahmad99/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon-custom" aria-label="LeetCode">
+                            <!-- Custom Stylized LeetCode Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M16.102 17.93l-2.69 2.607c-.466.451-1.111.696-1.744.696a2.285 2.285 0 0 1-1.687-.696L3.648 14.314a2.238 2.238 0 0 1 0-3.15l7.333-7.228c.466-.451 1.111-.697 1.744-.697.633 0 1.277.246 1.743.697l2.69 2.607c.466.451.695 1.102.695 1.722 0 .62-.23 1.272-.695 1.723l-3.323 3.299a.864.864 0 0 1-1.22 0 .835.835 0 0 1 0-1.18l3.324-3.298c.155-.15.232-.373.232-.564 0-.191-.077-.414-.232-.564l-2.69-2.607c-.156-.15-.378-.233-.578-.233-.2 0-.422.083-.578.233L5.09 12.176c-.31.3-.31.828 0 1.128l6.333 6.228c.156.15.378.233.579.233.2 0 .422-.083.578-.233l2.69-2.607c.31-.3.812-.3 1.122.001a.77.77 0 0 1-.29 1.004z" />
+                                <path
+                                    d="M8.978 13.567l5.333-5.267c.31-.3.813-.3 1.123 0a.77.77 0 0 1 0 1.129l-5.333 5.267c-.31.3-.812.3-1.123 0a.77.77 0 0 1 0-1.129z" />
+                            </svg>
+                            <span class="tooltip">LeetCode</span>
+                        </a>
+                        <a href="https://www.hackerrank.com/profile/ubaidhusain99" target="_blank"
+                            rel="noopener noreferrer" class="social-icon" aria-label="HackerRank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z" />
+                                <path d="M10 9v6" />
+                                <path d="M14 9v6" />
+                                <path d="M10 12h4" />
+                            </svg>
+                            <span class="tooltip">HackerRank</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Framed Profile Photo -->
+                <div class="hero-visual animate-fade-in">
+                    <div class="profile-card-frame">
+                        <div class="profile-glow"></div>
+                        <div class="profile-image-container">
+                            <img src="assets/profile.jpg" alt="Ubaid Ahmad" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#about" class="scroll-down-btn" aria-label="Scroll to About Me">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                </svg>
+            </a>
+        </section>
+
+        <!-- About Me & Core Education Section -->
+        <section id="about" class="section section-about">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-tag">Biography</span>
+                    <h2 class="section-title">About Me & Education</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <!-- About Text & Languages -->
+                    <div class="about-info card-glass scroll-reveal">
+                        <div class="card-icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <h3>Professional Summary</h3>
+                        <p class="about-text">
+                            A highly analytical Computer Science Graduate with a powerhouse foundation in <strong>Data
+                                Structures, Algorithms (DSA)</strong>, and the complete <strong>Software Development
+                                Life Cycle (SDLC)</strong>.
+                        </p>
+                        <p class="about-text">
+                            Passionate about writing clean, maintainable code, building cross-platform apps, and solving
+                            complex algorithmic problems. I love turning architectural diagrams and machine learning
+                            concepts into fluid, optimized digital products.
+                        </p>
+
+                        <!-- Core Expertise Grid -->
+                        <div class="core-expertise">
+                            <h4>Core Expertise</h4>
+                            <div class="expertise-grid">
+                                <div class="expertise-card">
+                                    <div class="expertise-header">
+                                        <span class="expertise-dot"></span>
+                                        <h5>Software Development</h5>
+                                    </div>
+                                    <p>Cross-platform mobile apps, robust backends, and clean, maintainable
+                                        architecture.</p>
+                                </div>
+                                <div class="expertise-card">
+                                    <div class="expertise-header">
+                                        <span class="expertise-dot"></span>
+                                        <h5>Deep Learning & ML</h5>
+                                    </div>
+                                    <p>Computer Vision, Convolutional Neural Networks (CNNs), and predictive data
+                                        models.</p>
+                                </div>
+                                <div class="expertise-card">
+                                    <div class="expertise-header">
+                                        <span class="expertise-dot"></span>
+                                        <h5>Problem Solving</h5>
+                                    </div>
+                                    <p>Strong foundation in Data Structures & Algorithms (DSA) with optimal execution.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="languages-spoken">
+                            <h4>Languages Spoken</h4>
+                            <div class="lang-tags">
+                                <span class="lang-tag">
+                                    <span class="lang-name">English</span>
+                                    <span class="lang-level">Native</span>
+                                </span>
+                                <span class="lang-tag">
+                                    <span class="lang-name">Urdu</span>
+                                    <span class="lang-level">Native</span>
+                                </span>
+                                <span class="lang-tag">
+                                    <span class="lang-name">Hindi</span>
+                                    <span class="lang-level">Native</span>
+                                </span>
+                                <span class="lang-tag lang-certified">
+                                    <span class="lang-name">French</span>
+                                    <span class="lang-level">A1 Certified</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Core Education Card -->
+                    <div class="education-card card-glass glow-on-hover scroll-reveal">
+                        <div class="card-icon-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+                            </svg>
+                        </div>
+                        <h3>Education</h3>
+                        <div class="edu-timeline">
+                            <div class="edu-item">
+                                <div class="edu-badge">Graduated: June 2026</div>
+                                <div class="edu-header" style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                    <img src="assets/logos/manuu.png" class="uni-logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; border-radius: 6px; background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); padding: 4px;" alt="MANUU Logo">
+                                    <h4 class="edu-degree" style="margin: 0; font-size: 18px; font-weight: 800; color: var(--text-primary);">Bachelor of Technology (B.Tech)</h4>
+                                </div>
+                                <p class="edu-major">Computer Science & Engineering</p>
+                                <p class="edu-inst">Maulana Azad National Urdu University (MANUU), Hyderabad</p>
+
+                                <div class="edu-stats">
+                                    <div class="stat-box">
+                                        <span class="stat-number">8.8</span>
+                                        <span class="stat-label">CGPA / 10</span>
+                                    </div>
+                                    <div class="stat-box">
+                                        <span class="stat-number">100%</span>
+                                        <span class="stat-label">Core Engineering</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="edu-item">
+                                <div class="edu-badge">Completed: 2021</div>
+                                <div class="edu-header" style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                    <img src="assets/logos/amu.png" class="uni-logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; border-radius: 6px; background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); padding: 4px;" alt="AMU Logo">
+                                    <h4 class="edu-degree" style="margin: 0; font-size: 18px; font-weight: 800; color: var(--text-primary);">Senior Secondary (12th Grade)</h4>
+                                </div>
+                                <p class="edu-major">Science (PCM)</p>
+                                <p class="edu-inst">Aligarh Muslim University (AMU), Aligarh</p>
+
+                                <div class="edu-stats">
+                                    <div class="stat-box">
+                                        <span class="stat-number">82.4%</span>
+                                        <span class="stat-label">Total Marks</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="edu-item">
+                                <div class="edu-badge">Completed: 2019</div>
+                                <div class="edu-header" style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                    <img src="assets/logos/amu.png" class="uni-logo" style="width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; border-radius: 6px; background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.1); padding: 4px;" alt="AMU Logo">
+                                    <h4 class="edu-degree" style="margin: 0; font-size: 18px; font-weight: 800; color: var(--text-primary);">Secondary School (10th Grade)</h4>
+                                </div>
+                                <p class="edu-inst">Aligarh Muslim University (AMU), Aligarh</p>
+
+                                <div class="edu-stats">
+                                    <div class="stat-box">
+                                        <span class="stat-number">87.6%</span>
+                                        <span class="stat-label">Total Marks</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="skills" class="section section-skills">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-tag">Toolkit</span>
+                    <h2 class="section-title">Technical Stack</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <!-- Skill Filter Tabs -->
+                <div class="skills-filter scroll-reveal">
+                    <button class="filter-btn active" data-filter="all">All Skills</button>
+                    <button class="filter-btn" data-filter="languages">Languages</button>
+                    <button class="filter-btn" data-filter="frameworks">Frameworks & Libs</button>
+                    <button class="filter-btn" data-filter="tools">Tools & Cloud</button>
+                    <button class="filter-btn" data-filter="competencies">Competencies</button>
+                </div>
+
+                <!-- Skills Grid -->
+                <div class="skills-grid scroll-reveal">
+                    <!-- Languages -->
+                    <div class="skill-tag" data-category="languages">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Python</span>
+                    </div>
+                    <div class="skill-tag" data-category="languages">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Java (Core)</span>
+                    </div>
+                    <div class="skill-tag" data-category="languages">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">C</span>
+                    </div>
+                    <div class="skill-tag" data-category="languages">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">SQL</span>
+                    </div>
+                    <div class="skill-tag" data-category="languages">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">JavaScript</span>
+                    </div>
+                    <div class="skill-tag" data-category="languages">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">HTML/CSS</span>
+                    </div>
+
+                    <!-- Frameworks -->
+                    <div class="skill-tag" data-category="frameworks">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">NumPy</span>
+                    </div>
+                    <div class="skill-tag" data-category="frameworks">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Pandas</span>
+                    </div>
+                    <div class="skill-tag" data-category="frameworks">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">TensorFlow</span>
+                    </div>
+                    <div class="skill-tag" data-category="frameworks">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Keras</span>
+                    </div>
+                    <div class="skill-tag" data-category="frameworks">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Scikit-Learn</span>
+                    </div>
+                    <div class="skill-tag" data-category="frameworks">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Django</span>
+                    </div>
+                    <div class="skill-tag" data-category="frameworks">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Flask</span>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="skill-tag" data-category="tools">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Git</span>
+                    </div>
+                    <div class="skill-tag" data-category="tools">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">GitHub</span>
+                    </div>
+                    <div class="skill-tag" data-category="tools">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Android Studio</span>
+                    </div>
+                    <div class="skill-tag" data-category="tools">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">VS Code</span>
+                    </div>
+                    <div class="skill-tag" data-category="tools">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Google Cloud (GCP)</span>
+                    </div>
+                    <div class="skill-tag" data-category="tools">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">AWS</span>
+                    </div>
+
+                    <!-- Core Competencies -->
+                    <div class="skill-tag" data-category="competencies">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Data Structures & Algos</span>
+                    </div>
+                    <div class="skill-tag" data-category="competencies">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">OOPs</span>
+                    </div>
+                    <div class="skill-tag" data-category="competencies">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">DBMS</span>
+                    </div>
+                    <div class="skill-tag" data-category="competencies">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Software Testing</span>
+                    </div>
+                    <div class="skill-tag" data-category="competencies">
+                        <span class="skill-dot"></span>
+                        <span class="skill-name">Debugging</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Coding Milestones Section -->
+        <section id="experience" class="section section-experience">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-tag">Career & Achievements</span>
+                    <h2 class="section-title">Milestones & Experience</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="experience-timeline">
+                    <!-- CDAC Internship -->
+                    <div class="timeline-item left scroll-reveal">
+                        <div class="timeline-dot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                            </svg>
+                        </div>
+                        <div class="timeline-card card-glass glow-on-hover">
+                            <div class="experience-header">
+                                <span class="exp-badge">Jan 2025 - Feb 2025</span>
+                                <h3 class="exp-role">Cyber Security Intern</h3>
+                                <h4 class="exp-company">CDAC, Noida</h4>
+                            </div>
+                            <ul class="exp-details">
+                                <li>Executed systematic vulnerability assessments and penetration testing using industry
+                                    tools.</li>
+                                <li>Completed intensive MEITY training focused on corporate threat landscapes and system
+                                    hardening protocols.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- LeetCode Milestones -->
+                    <div class="timeline-item right scroll-reveal">
+                        <div class="timeline-dot">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="7" />
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                            </svg>
+                        </div>
+                        <div class="timeline-card card-glass glow-on-hover">
+                            <div class="experience-header">
+                                <span class="exp-badge accent-badge">Algorithmic Proficiency</span>
+                                <h3 class="exp-role">Data Structures & Competitive Programming</h3>
+                                <h4 class="exp-company">Advanced Problem Solving & Optimization</h4>
+                            </div>
+                            <ul class="exp-details">
+                                <li>Maintained rigorous consistency in computational problem-solving, successfully
+                                    mastering diverse algorithmic challenges and earning multiple platform milestone
+                                    badges.</li>
+                                <li>Deep practical understanding of core Data Structures & Algorithms (DSA), including
+                                    Dynamic Programming, Graph Theory, Advanced Trees, and Recursion.</li>
+                                <li>Highly focused on runtime efficiency, consistently designing optimized solutions
+                                    with optimal Time (<strong>O(N log N)</strong> / <strong>O(N)</strong>) and Space
+                                    complexities.</li>
+                                <li>Leveraged competitive programming foundations to write clean, performance-driven
+                                    logic across software development and complex machine learning pipelines.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="section section-projects">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-tag">Selected Works</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card card-glass glow-on-hover scroll-reveal">
+                        <div class="project-image-placeholder">
+                            <div class="project-accent-bg cnn-gradient"></div>
+                            <div class="project-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </div>
+                            <span class="project-meta">91.4% Accuracy</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Skin Disease Detection using CNN</h3>
+                            <p class="project-description">
+                                Designed and trained a Deep Learning model on the HAM10000 dataset, achieving a 91.4%
+                                multiclass classification accuracy across 7 diagnostic categories.
+                            </p>
+                            <div class="project-highlight">
+                                <strong>Technical Highlight:</strong> Built an image augmentation pipeline that reduced
+                                overfitting by 18% and lowered false-negative classifications by 12% using confusion
+                                matrix optimization.
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">Keras</span>
+                                <span class="tag">CNN</span>
+                                <span class="tag">HAM10000</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/ubaidahmad786/skin-disease-detection" target="_blank"
+                                    rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card card-glass glow-on-hover scroll-reveal">
+                        <div class="project-image-placeholder">
+                            <div class="project-accent-bg ml-gradient"></div>
+                            <div class="project-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                                    <path d="M22 12A10 10 0 0 0 12 2v10z" />
+                                </svg>
+                            </div>
+                            <span class="project-meta">F1-Score: 0.86</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Customer Churn Prediction</h3>
+                            <p class="project-description">
+                                Built an end-to-end predictive machine learning model to proactively identify high-risk
+                                customer attrition trends within a dataset containing 7,000+ records.
+                            </p>
+                            <div class="project-highlight">
+                                <strong>Technical Highlight:</strong> Implemented and hyper-tuned Random Forest and
+                                Decision Tree Classifiers via k-fold cross-validation, yielding an optimal F1-score of
+                                0.86.
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Scikit-Learn</span>
+                                <span class="tag">Pandas</span>
+                                <span class="tag">NumPy</span>
+                                <span class="tag">Ensemble Models</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/ubaidahmad786/telecom-customer-churn" target="_blank"
+                                    rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card card-glass glow-on-hover scroll-reveal">
+                        <div class="project-image-placeholder">
+                            <div class="project-accent-bg web-gradient"></div>
+                            <div class="project-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="6" y1="3" x2="6" y2="15" />
+                                    <circle cx="18" cy="6" r="3" />
+                                    <circle cx="6" cy="18" r="3" />
+                                    <path d="M18 9a9 9 0 0 1-9 9" />
+                                </svg>
+                            </div>
+                            <span class="project-meta">Automation</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Intelligent SLA Router</h3>
+                            <p class="project-description">
+                                Developed an automated operational routing backend system designed to analyze,
+                                prioritize, and dynamically dispatch service logs based on strict SLA deadlines.
+                            </p>
+                            <div class="project-highlight">
+                                <strong>Technical Highlight:</strong> Formulated optimized queuing algorithms to
+                                efficiently direct high-priority traffic workflows and prevent routing bottlenecks.
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Data Routing</span>
+                                <span class="tag">Optimization</span>
+                                <span class="tag">Algorithmic Logic</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/ubaidahmad786/clearfeed-intelligent-sla-router"
+                                    target="_blank" rel="noopener noreferrer" class="project-link"
+                                    aria-label="GitHub Repository">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card card-glass glow-on-hover scroll-reveal">
+                        <div class="project-image-placeholder">
+                            <div class="project-accent-bg mobile-gradient"></div>
+                            <div class="project-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                                </svg>
+                            </div>
+                            <span class="project-meta">Flutter Mobile</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Meals Mobile Application</h3>
+                            <p class="project-description">
+                                Built a cross-platform mobile application featuring interactive recipe databases,
+                                categorized nutritional filters, and customizable favorites configurations.
+                            </p>
+                            <div class="project-highlight">
+                                <strong>Technical Highlight:</strong> Structured performant cross-platform interfaces
+                                using fluid component widgets and organized widget trees for excellent responsiveness.
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Dart</span>
+                                <span class="tag">Cross-Platform</span>
+                                <span class="tag">Mobile Architecture</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/ubaidahmad786/meals" target="_blank"
+                                    rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card card-glass glow-on-hover scroll-reveal">
+                        <div class="project-image-placeholder">
+                            <div class="project-accent-bg expense-gradient"></div>
+                            <div class="project-icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="5" width="20" height="14" rx="2" />
+                                    <line x1="2" y1="10" x2="22" y2="10" />
+                                </svg>
+                            </div>
+                            <span class="project-meta">Flutter Mobile</span>
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Expense Tracker App</h3>
+                            <p class="project-description">
+                                Developed a personal financial budgeting utility enabling users to log transactional
+                                costs, track expenditures, and review structural budget data in real-time.
+                            </p>
+                            <div class="project-highlight">
+                                <strong>Technical Highlight:</strong> Integrated clean application state management
+                                workflows to ensure instantaneous UI rendering and input synchronization.
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Dart</span>
+                                <span class="tag">Mobile Dev</span>
+                                <span class="tag">UI/UX</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/ubaidahmad786/expense_tracker" target="_blank"
+                                    rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section section-contact">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Let's Build Something Impactful</h2>
+                    <div class="section-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Form side -->
+                    <div class="contact-form-container card-glass scroll-reveal">
+                        <form id="contact-form" class="contact-form" novalidate>
+                            <!-- Web3Forms Access Key Input -->
+                            <input type="hidden" name="access_key" value="0c080af4-28a4-494a-b546-48ccae119cac">
+                            <input type="hidden" name="from_name" value="Ubaid Ahmad Portfolio">
+
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="form-name">Name</label>
+                                    <input type="text" id="form-name" name="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-email">Email</label>
+                                    <input type="email" id="form-email" name="email" placeholder="email@example.com"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-subject">Subject</label>
+                                <input type="text" id="form-subject" name="subject"
+                                    placeholder="Collaboration / Job Opportunity" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-message">Message</label>
+                                <textarea id="form-message" name="message" rows="5"
+                                    placeholder="Tell me about your project or role details..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span>Send Message</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                            </button>
+                            <div class="form-feedback" id="form-feedback"></div>
+                        </form>
+                    </div>
+
+                    <!-- Details side -->
+                    <div class="contact-details scroll-reveal">
+                        <div class="details-card card-glass glow-on-hover">
+                            <h3>Interested in collaborating?</h3>
+                            <p class="details-text">
+                                I am currently open to <strong>Software Engineering (Full Stack / Backend /
+                                    Frontend)</strong> and <strong>AI/Machine Learning</strong> roles, technical
+                                collaborations, and core development positions where I can apply my competitive
+                                programming mindset and deep learning skills.
+                            </p>
+
+                            <div class="details-list">
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                            <polyline points="22,6 12,13 2,6" />
+                                        </svg>
+                                    </div>
+                                    <div class="detail-content">
+                                        <span class="detail-label">Email Me Directly</span>
+                                        <a href="mailto:ubaidhusain99@gmail.com"
+                                            class="detail-link">ubaidhusain99@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                        </svg>
+                                    </div>
+                                    <div class="detail-content">
+                                        <span class="detail-label">GitHub Profile</span>
+                                        <a href="https://github.com/ubaidahmad786" target="_blank"
+                                            rel="noopener noreferrer" class="detail-link">github.com/ubaidahmad786</a>
+                                    </div>
+                                </div>
+
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                            <rect x="2" y="9" width="4" height="12" />
+                                            <circle cx="4" cy="4" r="2" />
+                                        </svg>
+                                    </div>
+                                    <div class="detail-content">
+                                        <span class="detail-label">LinkedIn</span>
+                                        <a href="https://linkedin.com/in/ubaid-ahmad-ml" target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="detail-link">linkedin.com/in/ubaid-ahmad-ml</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-content">
+                <p>&copy; 2026 Ubaid Ahmad. All rights reserved.</p>
+            </div>
+            <a href="#hero" class="btn-top" id="btn-back-to-top" aria-label="Back to Top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Interactive Resume Modal (Fallback/Preview for CV Action) -->
+    <div class="modal-overlay" id="resume-modal">
+        <div class="resume-modal card-glass">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+            <div class="resume-modal-header">
+                <h2>Curriculum Vitae</h2>
+                <p>Ubaid Ahmad | Software Engineer & Computer Science Graduate</p>
+            </div>
+            <div class="resume-preview-container" id="printable-resume">
+                <!-- Premium resume details styled for clean printable output -->
+                <div class="resume-header-block">
+                    <h1>Ubaid Ahmad</h1>
+                    <p class="resume-contacts">
+                        <span>ubaidhusain99@gmail.com</span> &bull;
+                        <span>+91 9540XXXXXX</span> &bull;
+                        <span>Hyderabad, India</span>
+                    </p>
+                    <p class="resume-links">
+                        <a href="https://github.com/ubaidahmad786" target="_blank">github.com/ubaidahmad786</a> &bull;
+                        <a href="https://linkedin.com/in/ubaid-ahmad-ml"
+                            target="_blank">linkedin.com/in/ubaid-ahmad-ml</a>
+                    </p>
+                </div>
+
+                <div class="resume-section-block">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <div class="resume-item-title-row">
+                            <strong>B.Tech in Computer Science & Engineering</strong>
+                            <span>2022 - 2026</span>
+                        </div>
+                        <div class="resume-item-sub-row">
+                            <span>Maulana Azad National Urdu University (MANUU), Hyderabad</span>
+                            <span>CGPA: 8.8 / 10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section-block">
+                    <h3>Experience</h3>
+                    <div class="resume-item">
+                        <div class="resume-item-title-row">
+                            <strong>Cyber Security Intern</strong>
+                            <span>Jan 2025 - Feb 2025</span>
+                        </div>
+                        <div class="resume-item-sub-row">
+                            <span>CDAC, Noida</span>
+                            <span>Noida, UP</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li>Executed vulnerability assessments and penetration testing on enterprise web interfaces.
+                            </li>
+                            <li>Acquired advanced MEITY training in threats defense strategies and network server
+                                hardening protocols.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="resume-section-block">
+                    <h3>Projects</h3>
+                    <div class="resume-item">
+                        <div class="resume-item-title-row">
+                            <strong>Skin Disease Detection using CNN</strong>
+                            <span>Deep Learning Project</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li>Trained CNN architectures on HAM10000 datasets achieving a multiclass classification
+                                accuracy of 91.4%.</li>
+                            <li>Created custom image augmentation pipelines resulting in an 18% reduction of
+                                overfitting.</li>
+                        </ul>
+                    </div>
+                    <div class="resume-item">
+                        <div class="resume-item-title-row">
+                            <strong>Customer Churn Prediction</strong>
+                            <span>Machine Learning Project</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li>Developed churn forecasting pipeline on 7k+ telecom entries achieving an F1 score of
+                                0.86.</li>
+                            <li>Tuned hyperparameters of Random Forests and Decision Tree models via cross-validation.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="resume-item">
+                        <div class="resume-item-title-row">
+                            <strong>Web Application Suite</strong>
+                            <span>Frontend Development</span>
+                        </div>
+                        <ul class="resume-bullets">
+                            <li>Developed responsive web platforms and dynamic components using semantic HTML, modern
+                                CSS, and JS.</li>
+                            <li>Integrated local storage systems to persist user data, resulting in highly performant
+                                offline utility tools.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="resume-section-block">
+                    <h3>Skills & Achievements</h3>
+                    <p><strong>Languages:</strong> Python, Java, C, JavaScript, SQL, HTML/CSS</p>
+                    <p><strong>Frameworks:</strong> NumPy, Pandas, TensorFlow, Keras, Scikit-Learn, Django, Flask</p>
+                    <p><strong>Coding Badges:</strong> LeetCode 50+ Days Streak, January Daily Challenge Badge</p>
+                </div>
+            </div>
+            <div class="resume-modal-footer">
+                <button class="btn btn-primary" id="btn-print-resume">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5">
+                        <polyline points="6 9 6 2 18 2 18 9" />
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                        <rect x="6" y="14" width="12" height="8" />
+                    </svg>
+                    <span>Print Resume / Save PDF</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Demo Modal (Simulation for Projects link placeholders) -->
+    <div class="modal-overlay" id="demo-modal">
+        <div class="demo-modal card-glass">
+            <button class="modal-close" id="demo-modal-close" aria-label="Close modal">&times;</button>
+            <div class="demo-modal-header">
+                <h3 id="demo-title">Project Interactive Simulator</h3>
+                <p id="demo-subtitle">Simulating live software deployment</p>
+            </div>
+            <div class="demo-viewport">
+                <!-- Dynamic Content Loaded by JS -->
+                <div class="demo-loader" id="demo-loader">
+                    <div class="spinner"></div>
+                    <p>Connecting to virtual environment...</p>
+                </div>
+                <div class="demo-screen-content hidden" id="demo-screen-content">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="46" fill="#0d1425" stroke="#c0ff00" stroke-width="6" />
+  <text x="50%" y="55%" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="44" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">
+    <tspan fill="#c0ff00">&lt;</tspan>U<tspan fill="#c0ff00">/&gt;</tspan>
+  </text>
+</svg>
