@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ubaid-ahmad-portfolio.vercel.app/sitemap.xml
+Sitemap: https://ubaidahmadportfolio.vercel.app/sitemap.xml

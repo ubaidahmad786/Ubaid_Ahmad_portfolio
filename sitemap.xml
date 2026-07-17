@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Note: If you use a custom domain, replace ubaid-ahmad-portfolio.vercel.app with your domain -->
+<!-- Note: If you use a custom domain, replace ubaidahmadportfolio.vercel.app with your domain -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ubaid-ahmad-portfolio.vercel.app/</loc>
+    <loc>https://ubaidahmadportfolio.vercel.app/</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
