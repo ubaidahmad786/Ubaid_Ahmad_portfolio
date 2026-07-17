@@ -546,7 +546,8 @@ input, textarea, button {
     margin-bottom: 20px;
     border-right: 2px solid var(--accent-color); /* Blinking cursor */
     display: inline-block;
-    min-height: 36px; /* Prevents text elements shifting up/down during typewriter animation */
+    vertical-align: top;
+    min-height: 38px; /* Prevents text elements shifting up/down during typewriter animation */
     animation: blink-caret 0.75s step-end infinite;
 }
 
@@ -1968,30 +1969,38 @@ input, textarea, button {
     /* Mobile Menu Toggle button */
     .mobile-menu-toggle {
         display: flex;
-        z-index: 102;
+        z-index: 10000;
     }
     
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 300px;
+        width: 100%;
+        max-width: none;
         height: 100vh;
-        background: rgba(9, 13, 22, 0.95);
+        background: rgba(9, 13, 22, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-left: 1px solid var(--border-glass);
+        border-left: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 40px;
         transition: var(--transition-normal);
-        z-index: 101;
+        z-index: 9999;
     }
     
     .nav-links.active {
         right: 0;
+    }
+    
+    /* Typewriter container height lock on mobile */
+    .hero-subtitle {
+        font-size: 18px;
+        min-height: 58px; /* Safe space reservation for 2 wrapped lines */
+        vertical-align: top;
+        display: inline-block;
     }
     
     /* Hamburger animation */
@@ -2015,7 +2024,7 @@ input, textarea, button {
     }
     .hero-subtitle {
         font-size: 18px;
-        min-height: 28px;
+        min-height: 58px;
     }
     .hero-cta {
         flex-direction: column;
