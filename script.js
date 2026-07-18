@@ -14,9 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const openMenu = () => {
             menuToggle.classList.add('active');
             navMenu.classList.add('active');
-            // Set scrollbar compensation CSS variable before locking scroll
-            const scrollbarWidth = getScrollbarWidth();
-            document.documentElement.style.setProperty('--scrollbar-compensation', scrollbarWidth + 'px');
+            // Only compensate for scrollbar on desktop (mobile uses overlay scrollbar = 0px)
+            if (window.innerWidth > 768) {
+                const scrollbarWidth = getScrollbarWidth();
+                document.documentElement.style.setProperty('--scrollbar-compensation', scrollbarWidth + 'px');
+            }
             document.body.classList.add('menu-open');
         };
 
@@ -77,6 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('btn-back-to-top');
     const scrollDownBtn = document.querySelector('.scroll-down-btn');
 
+    /* ==========================================================================
+       CACHED SECTION OFFSETS — eliminates forced reflow in scroll handler
+       ========================================================================== */
+    let sectionOffsets = [];
+
+    const cacheSectionOffsets = () => {
+        sectionOffsets = Array.from(document.querySelectorAll('section[id]')).map(section => ({
+            id: section.getAttribute('id'),
+            top: section.offsetTop,
+            height: section.offsetHeight
+        }));
+    };
+
     const handleScroll = () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -116,24 +131,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Active link highlighting on scroll
+        // Active link highlighting using CACHED offsets (no forced reflow)
         const scrollPosition = scrollTop + 100;
-        const sections = document.querySelectorAll('section[id]');
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            
+        sectionOffsets.forEach(({ id, top, height }) => {
+            const correspondingLink = document.querySelector(`.nav-link[href="#${id}"]`);
             if (correspondingLink) {
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                if (scrollPosition >= top && scrollPosition < top + height) {
                     navLinks.forEach(link => link.classList.remove('active'));
                     correspondingLink.classList.add('active');
                 }
             }
         });
     };
+
+    // Cache offsets on load and resize (only time layout changes)
+    cacheSectionOffsets();
+    window.addEventListener('resize', throttle(cacheSectionOffsets, 200));
 
     // Throttle scroll handler to ~60fps (16ms) to prevent mobile GPU flicker
     window.addEventListener('scroll', throttle(handleScroll, 16), { passive: true });

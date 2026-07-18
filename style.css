@@ -2024,7 +2024,7 @@ input, textarea, button {
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 100%;
         max-width: none;
         height: 100vh;
@@ -2037,15 +2037,16 @@ input, textarea, button {
         justify-content: center;
         align-items: center;
         gap: 40px;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Use transform instead of right — compositor-only, no layout thrash */
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 10000;
         padding: 80px 20px 40px;
-        /* Prevent any internal content from shifting the menu position */
         overflow-x: hidden;
     }
     
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
     }
 
     /* Reduce blur on mobile header to prevent GPU flicker/blink */
@@ -2065,20 +2066,20 @@ input, textarea, button {
        ============================================= */
     .hero-subtitle {
         font-size: 18px;
-        min-height: 58px; /* Lock height for 2 wrapped lines on mobile */
+        min-height: 90px; /* Reserve space for up to 3 wrapped lines to prevent UI shift */
         vertical-align: top;
         display: inline-block;
         max-width: 100%;
         word-break: break-word;
         overflow-wrap: break-word;
-        /* Use white-space normal to allow natural wrapping with reserved height */
         white-space: normal;
         text-align: center;
+        line-height: 1.5;
     }
     
-    /* Hamburger X animation */
+    /* Hamburger X animation — pure vertical translateY, no horizontal shift */
     .mobile-menu-toggle.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
+        transform: translateY(8px) rotate(45deg);
     }
     
     .mobile-menu-toggle.active .bar:nth-child(2) {
@@ -2086,7 +2087,7 @@ input, textarea, button {
     }
     
     .mobile-menu-toggle.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -7px);
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     /* Footer alignment fix on mobile */
@@ -2100,6 +2101,7 @@ input, textarea, button {
         text-align: center;
         gap: 12px;
         padding: 0 16px;
+        padding-bottom: 60px; /* Reserve space below for fixed btn-top (40px + margin) */
         width: 100%;
     }
 
@@ -2159,8 +2161,9 @@ input, textarea, button {
         font-size: 34px;
     }
     .hero-subtitle {
-        font-size: 16px;
-        min-height: 52px;
+        font-size: 15px;
+        min-height: 72px; /* 3 lines at 15px safely */
+        line-height: 1.4;
     }
     .hero-cta {
         flex-direction: column;
