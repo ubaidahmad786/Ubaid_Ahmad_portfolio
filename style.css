@@ -2054,9 +2054,15 @@ input, textarea, button {
         width: 100%;
     }
 
-    /* Contact section details card: prevent text clipping */
+    /* Remove height:100% stretch on single-column mobile layout */
+    .contact-details {
+        height: auto;
+    }
+
+    /* Contact section details card: prevent text clipping & gap */
     .details-card {
         padding: 24px;
+        height: auto;
     }
 
     .details-text {
@@ -2066,6 +2072,11 @@ input, textarea, button {
     .detail-link, .detail-value {
         font-size: 13px;
         word-break: break-all;
+    }
+
+    /* Reduce section vertical padding on mobile */
+    .section {
+        padding: 60px 0;
     }
 
     /* Profile photo size on mobile */
