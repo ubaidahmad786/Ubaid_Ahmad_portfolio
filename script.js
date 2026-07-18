@@ -14,11 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const openMenu = () => {
             menuToggle.classList.add('active');
             navMenu.classList.add('active');
-            // Only compensate for scrollbar on desktop (mobile uses overlay scrollbar = 0px)
-            if (window.innerWidth > 768) {
-                const scrollbarWidth = getScrollbarWidth();
-                document.documentElement.style.setProperty('--scrollbar-compensation', scrollbarWidth + 'px');
-            }
             document.body.classList.add('menu-open');
         };
 
@@ -26,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.classList.remove('menu-open');
-            document.documentElement.style.setProperty('--scrollbar-compensation', '0px');
         };
 
         menuToggle.addEventListener('click', () => {
@@ -155,18 +149,22 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        TYPEWRITER SUBHEAD ANIMATION
        ========================================================================== */
+    // Target: the span INSIDE h2 (h2 now has static "I'm a " prefix)
     const typewriterElement = document.getElementById('typewriter-title');
-    if (typewriterElement) {
+    const typewriterParent = typewriterElement ? typewriterElement.closest('h2') : null;
+
+    if (typewriterElement && typewriterParent) {
+        // Shorter phrases — each fits on ONE line even on smallest mobile
+        // Reference site pattern: "I'm a [role]" — role is snappy and single-line
         const phrases = [
-            "Computer Science Graduate & Software Engineer",
-            "Deep Learning & Machine Learning Engineer",
-            "Full Stack Developer & AI Researcher",
-            "Python Developer & ML Specialist",
-            "Data Structures & Algorithms Enthusiast"
+            "Software Engineer",
+            "ML & Deep Learning Dev",
+            "Full Stack Developer",
+            "Python & AI Specialist",
+            "CS Graduate (MANUU)"
         ];
 
-        // --- Build DOM: textNode + cursor span (cursor is always the last child)
-        //     Cursor is a real element so it NEVER wraps to a new line alone.
+        // Build DOM inside the span: textNode + cursor
         typewriterElement.innerHTML = '';
         const textNode = document.createTextNode('');
         const cursorSpan = document.createElement('span');
@@ -175,39 +173,31 @@ document.addEventListener('DOMContentLoaded', () => {
         typewriterElement.appendChild(textNode);
         typewriterElement.appendChild(cursorSpan);
 
-        // --- Dynamic min-height measurement ---
-        // Renders each phrase invisibly, measures its actual height at the current
-        // viewport/font-size, then locks the tallest result as min-height.
-        // This is viewport-aware: runs once on load + on every resize.
-        const measureAndLockHeight = () => {
-            typewriterElement.style.visibility = 'hidden';
-            typewriterElement.style.minHeight = '0';
-
-            let maxHeight = 0;
-            phrases.forEach(phrase => {
-                textNode.nodeValue = phrase;
-                const h = typewriterElement.offsetHeight;
-                if (h > maxHeight) maxHeight = h;
-            });
-
-            // Add 25% of a line-height as buffer for subpixel rounding
-            const lineHeight = parseFloat(getComputedStyle(typewriterElement).lineHeight) || 24;
-            typewriterElement.style.minHeight = (maxHeight + lineHeight * 0.25) + 'px';
-
-            // Restore to empty + visible
-            textNode.nodeValue = '';
-            typewriterElement.style.visibility = '';
+        // Lock h2 height based on its natural single-line height
+        // h2 won't shift because "I'm a" prefix already takes the full line height
+        const lockHeight = () => {
+            // Just lock to current computed height — one line with prefix
+            const h = typewriterParent.offsetHeight;
+            typewriterParent.style.minHeight = h + 'px';
         };
+        // Run after fonts load
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(lockHeight);
+        } else {
+            setTimeout(lockHeight, 300);
+        }
+        window.addEventListener('resize', throttle(() => {
+            typewriterParent.style.minHeight = '0';
+            const h = typewriterParent.offsetHeight;
+            typewriterParent.style.minHeight = h + 'px';
+        }, 400));
 
-        measureAndLockHeight();
-        // Remeasure on resize — handles orientation change + desktop/mobile switch
-        window.addEventListener('resize', throttle(measureAndLockHeight, 300));
-
-        // --- Typewriter tick ---
+        // Typewriter tick
         let phraseIdx = 0;
         let charIdx = 0;
         let isDeleting = false;
-        let typingSpeed = 70;
+        let typingSpeed = 80;
+        let animId = null;
 
         const type = () => {
             const currentPhrase = phrases[phraseIdx];
@@ -215,23 +205,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isDeleting) {
                 textNode.nodeValue = currentPhrase.substring(0, charIdx - 1);
                 charIdx--;
-                typingSpeed = 30;
+                typingSpeed = 35;
             } else {
                 textNode.nodeValue = currentPhrase.substring(0, charIdx + 1);
                 charIdx++;
-                typingSpeed = 70;
+                typingSpeed = 80;
             }
 
             if (!isDeleting && charIdx === currentPhrase.length) {
                 isDeleting = true;
-                typingSpeed = 2000; // Pause at full phrase
+                typingSpeed = 2200; // Pause before deleting
             } else if (isDeleting && charIdx === 0) {
                 isDeleting = false;
                 phraseIdx = (phraseIdx + 1) % phrases.length;
-                typingSpeed = 500; // Pause before next phrase
+                typingSpeed = 500;
             }
 
-            setTimeout(type, typingSpeed);
+            animId = setTimeout(type, typingSpeed);
         };
 
         setTimeout(type, 1000);
