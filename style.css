@@ -555,24 +555,22 @@ input, textarea, button {
     font-weight: 600;
     color: var(--text-secondary);
     margin-bottom: 20px;
-    display: inline-block;
-    vertical-align: top;
-    min-height: 38px; /* Prevents text elements shifting up/down during typewriter animation */
+    display: block; /* block so it fills container width naturally */
+    /* min-height is set dynamically by JS based on actual rendered height */
+    overflow: hidden;
     position: relative;
-    /* Use padding-right to reserve exactly 1 cursor-width of space */
-    padding-right: 3px;
 }
 
-/* Blinking cursor as pseudo-element — doesn't cause layout reflow or take extra character space */
-.hero-subtitle::after {
-    content: '';
+/* Blinking cursor — inline span, always stays with text, never wraps alone */
+.hero-subtitle .cursor {
     display: inline-block;
     width: 2px;
-    height: 1.15em;
+    height: 1em;
     background-color: var(--accent-color);
-    margin-left: 2px;
-    vertical-align: text-bottom;
+    margin-left: 3px;
+    vertical-align: middle;
     animation: blink-caret 0.75s step-end infinite;
+    border-radius: 1px;
 }
 
 @keyframes blink-caret {
@@ -2062,14 +2060,11 @@ input, textarea, button {
     }
     
     /* =============================================
-       TYPEWRITER - Prevent layout shift on mobile
+       TYPEWRITER - Dynamic height set by JS
        ============================================= */
     .hero-subtitle {
         font-size: 18px;
-        min-height: 90px; /* Reserve space for up to 3 wrapped lines to prevent UI shift */
-        vertical-align: top;
-        display: inline-block;
-        max-width: 100%;
+        /* No fixed min-height — JS dynamically sets it after measuring all phrases */
         word-break: break-word;
         overflow-wrap: break-word;
         white-space: normal;
@@ -2162,7 +2157,7 @@ input, textarea, button {
     }
     .hero-subtitle {
         font-size: 15px;
-        min-height: 72px; /* 3 lines at 15px safely */
+        /* No fixed min-height — JS handles dynamically */
         line-height: 1.4;
     }
     .hero-cta {

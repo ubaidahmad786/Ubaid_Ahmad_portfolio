@@ -157,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const typewriterElement = document.getElementById('typewriter-title');
     if (typewriterElement) {
-        typewriterElement.textContent = ''; // Clear initial static text to prevent jumping
         const phrases = [
             "Computer Science Graduate & Software Engineer",
             "Deep Learning & Machine Learning Engineer",
@@ -165,6 +164,46 @@ document.addEventListener('DOMContentLoaded', () => {
             "Python Developer & ML Specialist",
             "Data Structures & Algorithms Enthusiast"
         ];
+
+        // --- Build DOM: textNode + cursor span (cursor is always the last child)
+        //     Cursor is a real element so it NEVER wraps to a new line alone.
+        typewriterElement.innerHTML = '';
+        const textNode = document.createTextNode('');
+        const cursorSpan = document.createElement('span');
+        cursorSpan.className = 'cursor';
+        cursorSpan.setAttribute('aria-hidden', 'true');
+        typewriterElement.appendChild(textNode);
+        typewriterElement.appendChild(cursorSpan);
+
+        // --- Dynamic min-height measurement ---
+        // Renders each phrase invisibly, measures its actual height at the current
+        // viewport/font-size, then locks the tallest result as min-height.
+        // This is viewport-aware: runs once on load + on every resize.
+        const measureAndLockHeight = () => {
+            typewriterElement.style.visibility = 'hidden';
+            typewriterElement.style.minHeight = '0';
+
+            let maxHeight = 0;
+            phrases.forEach(phrase => {
+                textNode.nodeValue = phrase;
+                const h = typewriterElement.offsetHeight;
+                if (h > maxHeight) maxHeight = h;
+            });
+
+            // Add 25% of a line-height as buffer for subpixel rounding
+            const lineHeight = parseFloat(getComputedStyle(typewriterElement).lineHeight) || 24;
+            typewriterElement.style.minHeight = (maxHeight + lineHeight * 0.25) + 'px';
+
+            // Restore to empty + visible
+            textNode.nodeValue = '';
+            typewriterElement.style.visibility = '';
+        };
+
+        measureAndLockHeight();
+        // Remeasure on resize — handles orientation change + desktop/mobile switch
+        window.addEventListener('resize', throttle(measureAndLockHeight, 300));
+
+        // --- Typewriter tick ---
         let phraseIdx = 0;
         let charIdx = 0;
         let isDeleting = false;
@@ -172,31 +211,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const type = () => {
             const currentPhrase = phrases[phraseIdx];
-            
+
             if (isDeleting) {
-                typewriterElement.textContent = currentPhrase.substring(0, charIdx - 1);
+                textNode.nodeValue = currentPhrase.substring(0, charIdx - 1);
                 charIdx--;
-                typingSpeed = 30; // Delete faster
+                typingSpeed = 30;
             } else {
-                typewriterElement.textContent = currentPhrase.substring(0, charIdx + 1);
+                textNode.nodeValue = currentPhrase.substring(0, charIdx + 1);
                 charIdx++;
-                typingSpeed = 70; // Normal typing speed
+                typingSpeed = 70;
             }
 
-            // Word completed
             if (!isDeleting && charIdx === currentPhrase.length) {
                 isDeleting = true;
-                typingSpeed = 2000; // Pause at full word
+                typingSpeed = 2000; // Pause at full phrase
             } else if (isDeleting && charIdx === 0) {
                 isDeleting = false;
                 phraseIdx = (phraseIdx + 1) % phrases.length;
-                typingSpeed = 500; // Pause before typing next word
+                typingSpeed = 500; // Pause before next phrase
             }
 
             setTimeout(type, typingSpeed);
         };
 
-        // Start typing
         setTimeout(type, 1000);
     }
 
