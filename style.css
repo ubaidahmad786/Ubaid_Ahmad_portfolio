@@ -65,6 +65,13 @@
     scroll-behavior: smooth;
 }
 
+/* Prevent layout shift when menu opens and scrollbar disappears */
+body.menu-open {
+    overflow: hidden;
+    /* Compensate for scrollbar width to prevent content jump */
+    padding-right: var(--scrollbar-compensation, 0px);
+}
+
 body {
     background-color: var(--bg-dark-2);
     /* Subtle radial gradient lighting on body */
@@ -365,6 +372,10 @@ input, textarea, button {
     z-index: 100;
     transition: var(--transition-normal);
     background: transparent;
+    /* GPU acceleration to prevent mobile flicker/blink */
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .header.scrolled {
@@ -544,16 +555,29 @@ input, textarea, button {
     font-weight: 600;
     color: var(--text-secondary);
     margin-bottom: 20px;
-    border-right: 2px solid var(--accent-color); /* Blinking cursor */
     display: inline-block;
     vertical-align: top;
     min-height: 38px; /* Prevents text elements shifting up/down during typewriter animation */
+    position: relative;
+    /* Use padding-right to reserve exactly 1 cursor-width of space */
+    padding-right: 3px;
+}
+
+/* Blinking cursor as pseudo-element — doesn't cause layout reflow or take extra character space */
+.hero-subtitle::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 1.15em;
+    background-color: var(--accent-color);
+    margin-left: 2px;
+    vertical-align: text-bottom;
     animation: blink-caret 0.75s step-end infinite;
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--accent-color); }
+    from, to { background-color: transparent; }
+    50% { background-color: var(--accent-color); }
 }
 
 .hero-tagline {
@@ -1563,15 +1587,22 @@ input, textarea, button {
     border-top: 1px solid var(--border-glass);
     padding: 40px 0;
     background: var(--bg-dark-2);
+    width: 100%;
+    overflow: hidden; /* Prevent internal content from causing horizontal overflow */
 }
 
 .footer-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 16px;
     text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    flex: 1;
 }
 
 .footer-content p {
@@ -1591,13 +1622,21 @@ input, textarea, button {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(26, 31, 46, 0.85); /* Glassmorphic card surface with higher opacity */
+    background: rgba(26, 31, 46, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--border-glass-glow);
     color: var(--accent-color);
     box-shadow: var(--shadow-glass), 0 0 15px rgba(var(--accent-rgb), 0.25);
     transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    /* Ensure it doesn't overlap footer content on small screens */
+    pointer-events: none;
+    opacity: 0;
+}
+
+.btn-top.visible {
+    pointer-events: auto;
+    opacity: 1;
 }
 
 .btn-top:hover {
@@ -1970,11 +2009,15 @@ input, textarea, button {
        MOBILE MENU - Full Screen Overlay Fix
        ============================================= */
     
-    /* Hamburger icon: fixed position on right so it never shifts */
+    /* Hamburger icon: fixed size and position to prevent "dancing" */
     .mobile-menu-toggle {
         display: flex;
         z-index: 10001;
-        position: relative; /* stays inside nav-container flow */
+        position: relative;
+        /* Lock the hamburger dimensions so it never jumps */
+        width: 24px;
+        height: 18px;
+        flex-shrink: 0;
     }
 
     /* Nav links: full screen overlay */
@@ -1996,11 +2039,19 @@ input, textarea, button {
         gap: 40px;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 10000;
-        padding: 80px 20px 40px; /* top pad to clear header, bottom for safe area */
+        padding: 80px 20px 40px;
+        /* Prevent any internal content from shifting the menu position */
+        overflow-x: hidden;
     }
     
     .nav-links.active {
         right: 0;
+    }
+
+    /* Reduce blur on mobile header to prevent GPU flicker/blink */
+    .header.scrolled {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
     .nav-links .nav-link {
@@ -2014,12 +2065,15 @@ input, textarea, button {
        ============================================= */
     .hero-subtitle {
         font-size: 18px;
-        min-height: 58px; /* Lock height for 2 wrapped lines */
+        min-height: 58px; /* Lock height for 2 wrapped lines on mobile */
         vertical-align: top;
         display: inline-block;
         max-width: 100%;
         word-break: break-word;
         overflow-wrap: break-word;
+        /* Use white-space normal to allow natural wrapping with reserved height */
+        white-space: normal;
+        text-align: center;
     }
     
     /* Hamburger X animation */
@@ -2046,12 +2100,25 @@ input, textarea, button {
         text-align: center;
         gap: 12px;
         padding: 0 16px;
+        width: 100%;
+    }
+
+    .footer-content {
+        width: 100%;
     }
 
     .footer-content p {
         font-size: 13px;
         text-align: center;
         width: 100%;
+    }
+
+    /* Back-to-top button: smaller and less intrusive on mobile */
+    .btn-top {
+        bottom: 20px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
     }
 
     /* Remove height:100% stretch on single-column mobile layout */

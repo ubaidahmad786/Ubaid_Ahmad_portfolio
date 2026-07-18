@@ -8,26 +8,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     if (menuToggle && navMenu) {
+        // Calculate scrollbar width for layout shift compensation
+        const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth;
+
+        const openMenu = () => {
+            menuToggle.classList.add('active');
+            navMenu.classList.add('active');
+            // Set scrollbar compensation CSS variable before locking scroll
+            const scrollbarWidth = getScrollbarWidth();
+            document.documentElement.style.setProperty('--scrollbar-compensation', scrollbarWidth + 'px');
+            document.body.classList.add('menu-open');
+        };
+
+        const closeMenu = () => {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            document.documentElement.style.setProperty('--scrollbar-compensation', '0px');
+        };
+
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            // Lock body scroll when menu is open to prevent background content shifting
             if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
+                closeMenu();
             } else {
-                document.body.style.overflow = '';
+                openMenu();
             }
         });
 
         // Close menu when links are clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
+                closeMenu();
             });
         });
     }
+
+    /* ==========================================================================
+       THROTTLE UTILITY — prevents excessive repaints on mobile scroll
+       ========================================================================== */
+    const throttle = (fn, limit) => {
+        let lastCall = 0;
+        let scheduledId = null;
+        return (...args) => {
+            const now = Date.now();
+            const remaining = limit - (now - lastCall);
+            if (remaining <= 0) {
+                if (scheduledId) {
+                    cancelAnimationFrame(scheduledId);
+                    scheduledId = null;
+                }
+                lastCall = now;
+                fn(...args);
+            } else if (!scheduledId) {
+                scheduledId = requestAnimationFrame(() => {
+                    lastCall = Date.now();
+                    scheduledId = null;
+                    fn(...args);
+                });
+            }
+        };
+    };
 
     /* ==========================================================================
        HEADER SCROLL STATES & PROGRESS BAR
@@ -71,12 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (backToTopBtn) {
             if (scrollTop > 500) {
                 backToTopBtn.classList.add('visible');
-                backToTopBtn.style.opacity = '1';
-                backToTopBtn.style.pointerEvents = 'auto';
             } else {
                 backToTopBtn.classList.remove('visible');
-                backToTopBtn.style.opacity = '0';
-                backToTopBtn.style.pointerEvents = 'none';
             }
         }
 
@@ -99,7 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Throttle scroll handler to ~60fps (16ms) to prevent mobile GPU flicker
+    window.addEventListener('scroll', throttle(handleScroll, 16), { passive: true });
     handleScroll(); // Initial invoke
 
     /* ==========================================================================
@@ -219,12 +256,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const openResume = (e) => {
         e.preventDefault();
         if (resumeModal) resumeModal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Lock background
+        document.body.classList.add('menu-open');
     };
 
     const closeResume = () => {
         if (resumeModal) resumeModal.classList.remove('active');
-        document.body.style.overflow = ''; // Release background
+        document.body.classList.remove('menu-open');
     };
 
     // Commented out to allow direct Google Drive link download/open instead of showing the modal
@@ -389,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const projectKey = titleEl.textContent.trim().toLowerCase();
                 if (demoModal) {
                     demoModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    document.body.classList.add('menu-open');
                     runDemoSimulator(projectKey);
                 }
             }
@@ -398,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closeDemo = () => {
         if (demoModal) demoModal.classList.remove('active');
-        document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
     };
 
     if (demoClose) demoClose.addEventListener('click', closeDemo);
