@@ -1966,12 +1966,18 @@ input, textarea, button {
     }
 
     
-    /* Mobile Menu Toggle button */
+    /* =============================================
+       MOBILE MENU - Full Screen Overlay Fix
+       ============================================= */
+    
+    /* Hamburger icon: fixed position on right so it never shifts */
     .mobile-menu-toggle {
         display: flex;
-        z-index: 10000;
+        z-index: 10001;
+        position: relative; /* stays inside nav-container flow */
     }
-    
+
+    /* Nav links: full screen overlay */
     .nav-links {
         position: fixed;
         top: 0;
@@ -1979,6 +1985,7 @@ input, textarea, button {
         width: 100%;
         max-width: none;
         height: 100vh;
+        height: 100dvh; /* dynamic viewport height for mobile address bar */
         background: rgba(9, 13, 22, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
@@ -1987,23 +1994,35 @@ input, textarea, button {
         justify-content: center;
         align-items: center;
         gap: 40px;
-        transition: var(--transition-normal);
-        z-index: 9999;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 10000;
+        padding: 80px 20px 40px; /* top pad to clear header, bottom for safe area */
     }
     
     .nav-links.active {
         right: 0;
     }
-    
-    /* Typewriter container height lock on mobile */
-    .hero-subtitle {
-        font-size: 18px;
-        min-height: 58px; /* Safe space reservation for 2 wrapped lines */
-        vertical-align: top;
-        display: inline-block;
+
+    .nav-links .nav-link {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
     }
     
-    /* Hamburger animation */
+    /* =============================================
+       TYPEWRITER - Prevent layout shift on mobile
+       ============================================= */
+    .hero-subtitle {
+        font-size: 18px;
+        min-height: 58px; /* Lock height for 2 wrapped lines */
+        vertical-align: top;
+        display: inline-block;
+        max-width: 100%;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Hamburger X animation */
     .mobile-menu-toggle.active .bar:nth-child(1) {
         transform: rotate(45deg) translate(5px, 6px);
     }
@@ -2015,16 +2034,55 @@ input, textarea, button {
     .mobile-menu-toggle.active .bar:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -7px);
     }
+
+    /* Footer alignment fix on mobile */
+    .footer {
+        padding: 30px 0;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+        padding: 0 16px;
+    }
+
+    .footer-content p {
+        font-size: 13px;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Contact section details card: prevent text clipping */
+    .details-card {
+        padding: 24px;
+    }
+
+    .details-text {
+        font-size: 14px;
+    }
+
+    .detail-link, .detail-value {
+        font-size: 13px;
+        word-break: break-all;
+    }
+
+    /* Profile photo size on mobile */
+    .profile-card-frame {
+        width: 240px;
+        height: 300px;
+    }
 }
 
 /* Mobile Screens (480px and below) */
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 38px;
+        font-size: 34px;
     }
     .hero-subtitle {
-        font-size: 18px;
-        min-height: 58px;
+        font-size: 16px;
+        min-height: 52px;
     }
     .hero-cta {
         flex-direction: column;
@@ -2044,7 +2102,7 @@ input, textarea, button {
         grid-template-columns: 1fr;
     }
     .about-info, .education-card, .contact-form-container, .details-card {
-        padding: 24px;
+        padding: 20px;
     }
     .edu-stats {
         grid-template-columns: 1fr;
@@ -2057,4 +2115,25 @@ input, textarea, button {
     .resume-preview-container {
         padding: 20px;
     }
+    
+    /* Even smaller profile photo on small phones */
+    .profile-card-frame {
+        width: 200px;
+        height: 260px;
+    }
+
+    /* Fix nav link size for small screens */
+    .nav-links .nav-link {
+        font-size: 18px;
+    }
+
+    /* Footer */
+    .footer-content p {
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
 }
+
