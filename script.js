@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "ML & Deep Learning Dev",
             "Full Stack Developer",
             "Python & AI Specialist",
-            "CS Graduate (MANUU)"
+            "Freelancer"
         ];
 
         // Build DOM inside the span: textNode + cursor
@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(type, 1000);
     }
+
 
     /* ==========================================================================
        SCROLL REVEAL (INTERSECTION OBSERVER)

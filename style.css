@@ -2049,6 +2049,199 @@ button {
 }
 
 /* ==========================================================================
+   FREELANCER UPGRADE SECTIONS
+   ========================================================================== */
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(var(--accent-rgb), 0.1);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+    background: var(--accent-gradient);
+    color: #fff;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.service-card p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid var(--border-glass);
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+.service-features li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.service-features li::before {
+    content: '✓';
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Testimonials Section */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.testimonial-card {
+    padding: 40px 30px;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(var(--accent-rgb), 0.2);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.author-info h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: var(--text-primary);
+}
+
+.author-info span {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Hire Me Floating CTA */
+.hire-me-floating {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #1dbf73; /* Fiverr Green */
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 99;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(29, 191, 115, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hire-me-floating:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(29, 191, 115, 0.5);
+    color: #fff;
+}
+
+.hire-me-pulse {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+}
+
+.hire-me-pulse::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: pulse-ring 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* ==========================================================================
    SCROLL REVEAL CLASSSES (JS Triggered)
    ========================================================================== */
 .scroll-reveal {
@@ -2081,8 +2274,15 @@ button {
 
 /* Tablet Layouts (1024px and below) */
 @media (max-width: 1024px) {
-    .projects-grid {
+    .projects-grid,
+    .services-grid,
+    .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
     .hero-title {
@@ -2122,7 +2322,9 @@ button {
     }
 
     .about-grid,
-    .contact-grid {
+    .contact-grid,
+    .services-grid,
+    .testimonials-grid {
         grid-template-columns: 1fr;
     }
 
@@ -2336,7 +2538,8 @@ button {
         font-size: 28px;
     }
 
-    .projects-grid {
+    .projects-grid,
+    .stats-grid {
         grid-template-columns: 1fr;
     }
 
