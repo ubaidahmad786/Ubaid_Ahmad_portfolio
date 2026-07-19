@@ -74,6 +74,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* Prevent layout shift when menu opens — NO padding-right (that causes hamburger dancing) */
@@ -93,6 +94,8 @@ body {
     font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
     position: relative;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
