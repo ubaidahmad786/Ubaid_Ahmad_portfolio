@@ -157,11 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Shorter phrases — each fits on ONE line even on smallest mobile
         // Reference site pattern: "I'm a [role]" — role is snappy and single-line
         const phrases = [
-            "Software Engineer",
-            "ML & Deep Learning Dev",
-            "Full Stack Developer",
-            "Python & AI Specialist",
-            "Freelancer"
+            "Aspiring Software Engineer",
+            "Machine Learning Enthusiast",
+            "Flutter App Developer",
+            "Python & ML Developer"
         ];
 
         // Build DOM inside the span: textNode + cursor
@@ -202,6 +201,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = () => {
             const currentPhrase = phrases[phraseIdx];
 
+            if (charIdx === 0 && !isDeleting) {
+                const prefixElement = typewriterParent.querySelector('.subtitle-static');
+                if (prefixElement) {
+                    const firstChar = currentPhrase.charAt(0).toLowerCase();
+                    if (['a', 'e', 'i', 'o', 'u'].includes(firstChar)) {
+                        prefixElement.textContent = "I'm an ";
+                    } else {
+                        prefixElement.textContent = "I'm a ";
+                    }
+                }
+            }
+
             if (isDeleting) {
                 textNode.nodeValue = currentPhrase.substring(0, charIdx - 1);
                 charIdx--;
@@ -232,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
        SCROLL REVEAL (INTERSECTION OBSERVER)
        ========================================================================== */
     const revealElements = document.querySelectorAll('.scroll-reveal');
-    
+
     if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -268,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             skillTags.forEach(tag => {
                 const tagCategory = tag.getAttribute('data-category');
-                
+
                 if (filterCategory === 'all' || tagCategory === filterCategory) {
                     tag.classList.remove('hidden');
                     // Small fade-in animation trigger
@@ -434,17 +445,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     const log = sim.logs[lineIdx];
                     const div = document.createElement('div');
                     div.classList.add('demo-log-line');
-                    
+
                     if (log.type === 'accent') div.classList.add('demo-log-accent');
                     else if (log.type === 'success') div.classList.add('demo-log-success');
                     else if (log.type === 'warning') div.classList.add('demo-log-warning');
-                    
+
                     div.textContent = log.text;
                     demoContent.appendChild(div);
-                    
+
                     // Auto scroll modal view
                     demoContent.scrollTop = demoContent.scrollHeight;
-                    
+
                     lineIdx++;
                     setTimeout(printNextLog, Math.random() * 200 + 100); // randomize line printing delay
                 }
@@ -460,7 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target.closest('.project-link')) {
                 return;
             }
-            
+
             // Otherwise, trigger the interactive simulation log modal
             const titleEl = card.querySelector('.project-title');
             if (titleEl) {
@@ -497,10 +508,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.innerHTML;
-            
+
             if (formFeedback) {
                 formFeedback.classList.remove('success', 'error');
                 formFeedback.textContent = '';
@@ -542,7 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     return;
                 }
-                
+
                 // Specific handler for '@l.com' typo when typing gmail (e.g. gmai@l.com)
                 if (domain === 'l.com' && (email.includes('gmai') || email.includes('gamil'))) {
                     if (formFeedback) {
@@ -581,33 +592,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify(formData)
             })
-            .then(async (response) => {
-                const data = await response.json();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
+                .then(async (response) => {
+                    const data = await response.json();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
 
-                if (response.ok && data.success) {
-                    if (formFeedback) {
-                        formFeedback.classList.add('success');
-                        formFeedback.textContent = 'Thank you! Your message has been sent successfully. Ubaid will get back to you shortly.';
+                    if (response.ok && data.success) {
+                        if (formFeedback) {
+                            formFeedback.classList.add('success');
+                            formFeedback.textContent = 'Thank you! Your message has been sent successfully. Ubaid will get back to you shortly.';
+                        }
+                        contactForm.reset();
+                    } else {
+                        if (formFeedback) {
+                            formFeedback.classList.add('error');
+                            formFeedback.textContent = data.message || 'Oops! There was a problem submitting your message.';
+                        }
                     }
-                    contactForm.reset();
-                } else {
+                })
+                .catch((err) => {
+                    console.error('Submission error:', err);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
                     if (formFeedback) {
                         formFeedback.classList.add('error');
-                        formFeedback.textContent = data.message || 'Oops! There was a problem submitting your message.';
+                        formFeedback.textContent = 'Oops! There was a network error. Please try again later.';
                     }
-                }
-            })
-            .catch((err) => {
-                console.error('Submission error:', err);
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                if (formFeedback) {
-                    formFeedback.classList.add('error');
-                    formFeedback.textContent = 'Oops! There was a network error. Please try again later.';
-                }
-            });
+                });
         });
 
         // Clear warning/success message as soon as user types (Standard UX optimization)
@@ -625,13 +636,13 @@ document.addEventListener('DOMContentLoaded', () => {
        INTERACTIVE MAGNETIC GLOW CARD EFFECT
        ========================================================================== */
     const glowCards = document.querySelectorAll('.glow-on-hover');
-    
+
     glowCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left; // x coordinate within the element
             const y = e.clientY - rect.top;  // y coordinate within the element
-            
+
             // Feeding coordinates back into CSS custom variables
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
