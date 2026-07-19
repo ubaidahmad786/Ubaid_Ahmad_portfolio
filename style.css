@@ -2188,58 +2188,7 @@ button {
     color: var(--text-secondary);
 }
 
-/* Hire Me Floating CTA */
-.hire-me-floating {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    background: #1dbf73; /* Fiverr Green */
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 99;
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(29, 191, 115, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
 
-.hire-me-floating:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(29, 191, 115, 0.5);
-    color: #fff;
-}
-
-.hire-me-pulse {
-    width: 8px;
-    height: 8px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: relative;
-}
-
-.hire-me-pulse::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    width: 16px;
-    height: 16px;
-    background-color: #fff;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: pulse-ring 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes pulse-ring {
-    0% { transform: scale(0.5); opacity: 1; }
-    100% { transform: scale(2); opacity: 0; }
-}
 
 /* ==========================================================================
    SCROLL REVEAL CLASSSES (JS Triggered)
